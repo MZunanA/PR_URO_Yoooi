@@ -10,17 +10,13 @@ from random import randint
 # zone_count: the amount of zones on the map
 # link_count: the amount of links between all zones
 player_count, my_id, zone_count, link_count = [int(i) for i in input().split()]
-idzona=[]
-sumberplatinum=[]
-zona1=[] 
-zona2=[]
+zona1=[] #untuk menampung zona yang saling link
+zona2=[] #untuk menampung zona yang saling link
 
 for i in range(zone_count):
     # zone_id: this zone's ID (between 0 and zoneCount-1)
     # platinum_source: Because of the fog, will always be 0
     zone_id, platinum_source = [int(j) for j in input().split()]
-    idzona += [zone_id]
-    sumberplatinum += [platinum_source]
 
 for i in range(link_count):
     zone_1, zone_2 = [int(j) for j in input().split()]
@@ -31,8 +27,8 @@ for i in range(link_count):
 while True:
     my_platinum = int(input())  # your available Platinum
 
-    zonakita, pemilik, podkita, podlawan, lihat, jumplatinum = [], [], [], [], [], []
-    mungkingerak = []
+    zonakita, podkita, podlawan = [], [], [] # list untuk mengumpulkan data dalam loop game
+    mungkingerak = [] #kemungkinan pod dalam suatu zona gerak ke zona lain ditampung disini
     count = 0
 
     for i in range(zone_count):
@@ -46,11 +42,8 @@ while True:
 
         if owner_id == my_id:
             zonakita += [z_id]
-            pemilik += [owner_id]
             podkita += [pods_p0]
             podlawan += [pods_p1]
-            lihat += [visible]
-            jumplatinum += [platinum]
 
             mungkingerak.append([])
             for i in range(len(zona1)):
@@ -62,8 +55,6 @@ while True:
             count += 1
     # Write an action using print
     # To debug: print("Debug messages...", file=sys.stderr)
-
-
     # first line for movement commands, second line no longer used (see the protocol in the statement for details)
     move = []
 
@@ -72,11 +63,11 @@ while True:
             podgerak = podkita[i] // 2
         else:
             podgerak=1
-        cek=[]
-        for k in range(len(mungkingerak[i])):
-            for j in range(len(zonakita)):
-                if mungkingerak[i][k]!=zonakita[j]:
-                    cek+=[mungkingerak[i][k]]
+        cek=[] #dibawah ini untuk atur supaya pod bergerak ke zona yang bukan milik kita(netral or punya lawan)
+        for a in range(len(zonakita)):
+            for b in range(len(mungkingerak[i])):
+                if zonakita[a]!=mungkingerak[i][b]:
+                    cek+=[mungkingerak[i][b]]
         if len(cek)!=0:
             go=cek[randint(0,len(cek)-1)]
         else:
