@@ -1,10 +1,7 @@
 # PR PROGRAMMING URO ITB
 
 ## Anggota kelompok :
-Muhammad Zunan Alfikri 16518175
-Sarah Alyaa Tsaabitah 16518152
-Daniel Benedict Iskandar 16718320
-Romansyah 16718 
+Muhammad Zunan Alfikri 16518175                                                                                              Sarah Alyaa Tsaabitah 16518152                                                                                             Daniel Benedict Iskandar 16718320                                                                                           Romansyah 16718 
 
 
 ## Strategi:
