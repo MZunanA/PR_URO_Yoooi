@@ -1,4 +1,5 @@
-# PR PROGRAMMING URO ITB
+# BOT PLATINUM RIFT 2
+### Untuk Tugas URO
 
 ## Anggota kelompok :
 - Muhammad Zunan Alfikri    16518175
